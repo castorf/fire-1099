@@ -207,7 +207,6 @@ def insert_state_total_records(data):
 def _field_add(data, key, incr):
     """Increment the value of a dict entry stored as text."""
     value = int(data[key])
-    print(value, incr)
     data[key] = str(value + incr)
 
 def generate_state_total(data, state_code):
