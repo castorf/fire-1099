@@ -1,0 +1,63 @@
+#:r 
+#"""
+#Module packaging
+#"""
+#
+#from setuptools import setup, find_packages
+#
+#setup(
+#    name='fire-1099',
+#    description='Generate 1099-MISC files for transmission through the \
+#    IRS FIRE system',
+#    long_description=open('README.md').read(),
+#
+#    license='MIT',
+#
+#    author='Stephen Johnson',
+#    author_email='4stephen.j@gmail.com',
+#
+#    version='0.0.1-alpha',
+#
+#    packages=find_packages(exclude=['contrib', 'docs', 'tests*', 'spec*']),
+#    include_package_data=True,
+#    scripts=['bin/fire-1099'],
+#
+#)
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fire-1099"
+description = "Generate 1099-MISC files for transmission through the IRS FIRE system."
+version = "0.0.2a1"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "MIT License"}
+# keywords
+authors = [
+    {name = "Stephen Johnson", email = "4stephen.j@gmail.com"}
+]
+classifiers=[
+        'Development Status :: 4 - Alpha',
+        'Environment :: Console',
+        'Intended Audience :: Developers',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7'
+    ]
+dependencies = ['click', 'jsonschema']
+
+[project.scripts]
+fire-1099 = "fire.translator:cli"
+
+
+[project.optional-dependencies]
+test = ["nose"]
+
+[project.urls]
+"Homepage" = 'https://github.com/djeserkare/fire-1099'
+
+[tool.setuptools.packages.find]
+exclude = ['contrib', 'docs', 'tests*', 'spec*']
